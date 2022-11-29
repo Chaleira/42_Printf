@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plopes-c <plopes-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/28 18:45:09 by plopes-c          #+#    #+#             */
-/*   Updated: 2022/11/29 05:04:34 by plopes-c         ###   ########.fr       */
+/*   Created: 2022/10/26 00:59:37 by chaleirag14       #+#    #+#             */
+/*   Updated: 2022/10/27 19:18:42 by plopes-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdlib.h>
-# include <stdint.h>
-# include "libft/libft.h"
+void	*ft_memset(void *s, int c, int n)
+{
+	char	*p;
+	int		i;
 
-int	ft_printf(const char *str, ...);
+	p = s;
+	i = 0;
+	while (n > i)
+	{
+		p[i] = c;
+		i++;
+	}
+	return (p);
+}
+/*
+int	main(void)
+{
+	char	buffer[100];
 
-#endif
+	ft_memset(buffer, 100, 20);
+	printf("%d\n", buffer[1]);
+}
+*/

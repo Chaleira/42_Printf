@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plopes-c <plopes-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/28 18:45:09 by plopes-c          #+#    #+#             */
-/*   Updated: 2022/11/29 05:04:34 by plopes-c         ###   ########.fr       */
+/*   Created: 2022/10/25 20:25:53 by plopes-c          #+#    #+#             */
+/*   Updated: 2022/11/16 21:48:29 by plopes-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdlib.h>
-# include <stdint.h>
-# include "libft/libft.h"
+size_t	ft_strlen(const char *s)
+{
+	int	i;
 
-int	ft_printf(const char *str, ...);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
 
-#endif
+// int main(void)
+// {
+//     printf("%ld\n", ft_strlen("test"));
+// 	return (0);
+// }

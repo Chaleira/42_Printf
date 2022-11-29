@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plopes-c <plopes-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/28 18:45:09 by plopes-c          #+#    #+#             */
-/*   Updated: 2022/11/29 05:04:34 by plopes-c         ###   ########.fr       */
+/*   Created: 2022/11/15 22:37:06 by plopes-c          #+#    #+#             */
+/*   Updated: 2022/11/23 19:52:41 by plopes-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdlib.h>
-# include <stdint.h>
-# include "libft/libft.h"
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+{
+	t_list	*newlst;
+	t_list	*ptr;
 
-int	ft_printf(const char *str, ...);
-
-#endif
+	ptr = NULL;
+	while (lst)
+	{
+		newlst = ft_lstnew(f(lst->content));
+		if (!newlst)
+		{
+			ft_lstclear(&ptr, del);
+			return (0);
+		}
+		ft_lstadd_back(&ptr, newlst);
+		lst = lst->next;
+	}
+	return (ptr);
+}

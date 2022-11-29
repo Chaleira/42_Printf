@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plopes-c <plopes-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/28 18:45:09 by plopes-c          #+#    #+#             */
-/*   Updated: 2022/11/29 05:04:34 by plopes-c         ###   ########.fr       */
+/*   Created: 2022/10/26 16:12:11 by plopes-c          #+#    #+#             */
+/*   Updated: 2022/11/03 19:43:12 by plopes-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdlib.h>
-# include <stdint.h>
-# include "libft/libft.h"
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	int	i;
 
-int	ft_printf(const char *str, ...);
+	i = 0;
+	if (size == 0)
+		return (ft_strlen(src));
+	while (src[i] && size - 1 > 0)
+	{
+		dst[i] = src[i];
+		i++;
+		size--;
+	}
+	dst[i] = '\0';
+	return (ft_strlen(src));
+}
+/*
+int	main(void)
+{
+	char	src[] = "abcdefghijklmnopqrstuvxz";
+	char	dest[6];
 
-#endif
+	ft_strlcpy(dest, src, sizeof(int) * 2);
+	printf("%s\n", dest);
+}
+*/

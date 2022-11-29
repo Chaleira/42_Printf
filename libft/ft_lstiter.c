@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plopes-c <plopes-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/28 18:45:09 by plopes-c          #+#    #+#             */
-/*   Updated: 2022/11/29 05:04:34 by plopes-c         ###   ########.fr       */
+/*   Created: 2022/11/15 22:07:05 by plopes-c          #+#    #+#             */
+/*   Updated: 2022/11/16 18:59:27 by plopes-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdlib.h>
-# include <stdint.h>
-# include "libft/libft.h"
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	t_list	*ptr;
+	t_list	*last;
 
-int	ft_printf(const char *str, ...);
-
-#endif
+	if (!lst || !f)
+		return ;
+	ptr = lst;
+	while (ptr)
+	{
+		last = ptr;
+		ptr = ptr->next;
+		f(last->content);
+	}
+}
