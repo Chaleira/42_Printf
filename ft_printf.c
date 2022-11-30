@@ -6,12 +6,12 @@
 /*   By: plopes-c <plopes-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 18:25:13 by plopes-c          #+#    #+#             */
-/*   Updated: 2022/11/30 00:23:33 by plopes-c         ###   ########.fr       */
+/*   Updated: 2022/11/30 07:03:04 by plopes-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-// #include <stdio.h>
+#include <stdio.h>
 
 void	checknprint(va_list args, int i, const char *str);
 
@@ -27,10 +27,7 @@ int	ft_printf(const char *str, ...)
 		if (str[i] != '%')
 			ft_putchar_fd(str[i], 1);
 		else
-		{
-			i++;
-			checknprint(args, i, str);
-		}
+			checknprint(args, ++i, str);
 		i++;
 	}
 	va_end(args);
@@ -58,14 +55,13 @@ void	checknprint(va_list args, int i, const char *str)
 		write(1, "0x", 2);
 		ft_putnbr_hexa_fd(va_arg(args, unsigned long int), 1, 0);
 	}
+	if (str[i] == '\n')
+		ft_putstr_fd("%\n", 1);
 }
 
 // int	main(void)
 // {
-// 	char	*f;
-
-// 	f = "abc";
-// 	ft_printf("numero: %p\n", f);
-// 	printf("numero: %p\n", f);
+// 	printf("numero: %\n");
+// 	ft_printf("numero: %\n");
 // 	return (0);
 // }
