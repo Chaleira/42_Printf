@@ -6,7 +6,7 @@
 /*   By: plopes-c <plopes-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:50:57 by plopes-c          #+#    #+#             */
-/*   Updated: 2022/11/10 21:26:18 by plopes-c         ###   ########.fr       */
+/*   Updated: 2022/11/29 22:36:29 by plopes-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 void	ft_putnbr_fd(int n, int fd)
 {
 	long	i;
+	char	*str;
 
 	i = n;
+	str = "0123456789";
 	if (i < 0)
 	{
 		write(fd, "-", 1);
@@ -24,5 +26,5 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	if (i >= 10)
 		ft_putnbr_fd(i / 10, fd);
-	ft_putchar_fd("0123456789"[i % 10], fd);
+	ft_putchar_fd(str[i % 10], fd);
 }
