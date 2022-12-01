@@ -6,25 +6,20 @@
 /*   By: plopes-c <plopes-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 05:02:18 by plopes-c          #+#    #+#             */
-/*   Updated: 2022/11/29 22:36:55 by plopes-c         ###   ########.fr       */
+/*   Updated: 2022/12/01 18:34:10 by plopes-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_unsigned_fd(unsigned int n, int fd)
+int	ft_putnbr_unsigned_fd(unsigned int n, int fd)
 {
-	long	i;
 	char	*str;
+	int		i;
 
-	i = n;
+	i = 0;
 	str = "0123456789";
-	if (i < 0)
-	{
-		write(fd, "-", 1);
-		i = i * -1;
-	}
-	if (i >= 10)
-		ft_putnbr_fd(i / 10, fd);
-	ft_putchar_fd(str[i % 10], fd);
+	if (n >= 10)
+		i = ft_putnbr_fd(n / 10, fd);
+	return (i + ft_putchar_fd(str[n % 10], fd));
 }

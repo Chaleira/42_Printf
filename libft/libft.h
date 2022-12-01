@@ -6,7 +6,7 @@
 /*   By: plopes-c <plopes-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 19:07:46 by plopes-c          #+#    #+#             */
-/*   Updated: 2022/11/30 00:08:17 by plopes-c         ###   ########.fr       */
+/*   Updated: 2022/12/01 18:53:15 by plopes-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putendl_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
-void	ft_putnbr_unsigned_fd(unsigned int n, int fd);
-void	ft_putnbr_hexa_fd(unsigned long int n, int fd, int low0_up1);
+int		ft_putchar_fd(char c, int fd);
+int		ft_putstr_fd(char *s, int fd);
+int		ft_putendl_fd(char *s, int fd);
+int		ft_putnbr_fd(int n, int fd);
+int		ft_putnbr_unsigned_fd(unsigned int n, int fd);
+int		ft_putnbr_hexa_fd(unsigned long int n, int fd, int low0_up1);
 
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);

@@ -6,13 +6,13 @@
 /*   By: plopes-c <plopes-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:43:15 by plopes-c          #+#    #+#             */
-/*   Updated: 2022/11/10 20:47:23 by plopes-c         ###   ########.fr       */
+/*   Updated: 2022/12/01 17:31:25 by plopes-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+int	ft_putendl_fd(char *s, int fd)
 {
 	size_t	i;
 
@@ -23,4 +23,5 @@ void	ft_putendl_fd(char *s, int fd)
 		i++;
 	}
 	ft_putchar_fd('\n', fd);
+	return (i + 1);
 }

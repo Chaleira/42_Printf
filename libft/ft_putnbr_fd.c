@@ -6,25 +6,27 @@
 /*   By: plopes-c <plopes-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:50:57 by plopes-c          #+#    #+#             */
-/*   Updated: 2022/11/29 22:36:29 by plopes-c         ###   ########.fr       */
+/*   Updated: 2022/12/01 18:53:03 by plopes-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_fd(int n, int fd)
 {
-	long	i;
-	char	*str;
+	long		number;
+	int			i;
+	char		*str;
 
-	i = n;
+	i = 0;
+	number = n;
 	str = "0123456789";
-	if (i < 0)
+	if (number < 0)
 	{
-		write(fd, "-", 1);
-		i = i * -1;
+		i = write(fd, "-", 1);
+		number = -number;
 	}
-	if (i >= 10)
-		ft_putnbr_fd(i / 10, fd);
-	ft_putchar_fd(str[i % 10], fd);
+	if (number >= 10)
+		i += ft_putnbr_fd((number / 10), fd);
+	return (i + ft_putchar_fd(str[number % 10], fd));
 }
