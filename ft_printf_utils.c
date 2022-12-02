@@ -6,7 +6,7 @@
 /*   By: plopes-c <plopes-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 23:09:19 by plopes-c          #+#    #+#             */
-/*   Updated: 2022/12/01 23:45:32 by plopes-c         ###   ########.fr       */
+/*   Updated: 2022/12/02 02:39:08 by plopes-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,6 @@ int	ft_putnbr_base(unsigned long n, char *base)
 	len = 0;
 	while (base[len] && base)
 		len++;
-	if (n < 0)
-	{
-		i = write(1, "-", 1);
-		n = -n;
-	}
 	if (n >= len)
 		i += ft_putnbr_base(n / len, base);
 	return (i + write(1, &base[n % len], 1));
